@@ -15,7 +15,9 @@ def currency_rates(code:str, date_string:str)->None:
         if today<date.date():
             raise ValueError('Введена дата из будущего')
         valute = take_datas.take_valute(formatted, code)
-        print(take_datas.create_output(valute,code))
+        output = take_datas.create_output(valute,code)
+        print(output)
+        return output # только для тестов, не знаю как перенаправить принт в переменную
     except ValueError as exc:
         print(f'Ошибка запроса: {exc}')
 
